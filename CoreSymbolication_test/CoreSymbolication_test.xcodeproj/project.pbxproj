@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EF6E3E615AF666300CEF0CA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF6E3E515AF666300CEF0CA /* SenTestingKit.framework */; };
 		1EF6E3E815AF666300CEF0CA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF6E3E715AF666300CEF0CA /* Cocoa.framework */; };
 		1EF6E3F215AF666300CEF0CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF6E3F015AF666300CEF0CA /* InfoPlist.strings */; };
 		1EF6E3F515AF666300CEF0CA /* CoreSymbolication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF6E3F415AF666300CEF0CA /* CoreSymbolication.m */; };
@@ -15,8 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1EF6E3E215AF666200CEF0CA /* CoreSymbolication.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreSymbolication.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EF6E3E515AF666300CEF0CA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1EF6E3E215AF666200CEF0CA /* CoreSymbolication.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreSymbolication.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF6E3E715AF666300CEF0CA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		1EF6E3EA15AF666300CEF0CA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1EF6E3EB15AF666300CEF0CA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -34,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF6E3E615AF666300CEF0CA /* SenTestingKit.framework in Frameworks */,
 				1EF6E3E815AF666300CEF0CA /* Cocoa.framework in Frameworks */,
 				1EF6E3FB15AF67BA00CEF0CA /* CoreSymbolication.framework in Frameworks */,
 			);
@@ -55,7 +52,7 @@
 		1EF6E3E315AF666200CEF0CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1EF6E3E215AF666200CEF0CA /* CoreSymbolication.octest */,
+				1EF6E3E215AF666200CEF0CA /* CoreSymbolication.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				1EF6E3FA15AF67BA00CEF0CA /* CoreSymbolication.framework */,
-				1EF6E3E515AF666300CEF0CA /* SenTestingKit.framework */,
 				1EF6E3E715AF666300CEF0CA /* Cocoa.framework */,
 				1EF6E3E915AF666300CEF0CA /* Other Frameworks */,
 			);
@@ -119,8 +115,8 @@
 			);
 			name = CoreSymbolication;
 			productName = CoreSymbolication;
-			productReference = 1EF6E3E215AF666200CEF0CA /* CoreSymbolication.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 1EF6E3E215AF666200CEF0CA /* CoreSymbolication.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -128,6 +124,7 @@
 		1EF6E3D615AF663700CEF0CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0730;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Mountainstorm;
 			};
@@ -218,8 +215,9 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"$(inherited)",
+					/System/Library/PrivateFrameworks/,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -242,7 +240,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -255,8 +252,9 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"$(inherited)",
+					/System/Library/PrivateFrameworks/,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -271,7 +269,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

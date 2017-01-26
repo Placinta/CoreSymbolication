@@ -39,58 +39,58 @@
  */
 - (void)testCSArchitectureGetArchitectureForName
 {
-	STAssertEquals(CSArchitectureGetArchitectureForName("i386"), CPU_TYPE_I386, @"CSArchitectureGetArchitectureForName: i386 != CPU_TYPE_I386");
+	XCTAssertEqual(CSArchitectureGetArchitectureForName("i386"), CPU_TYPE_I386, @"CSArchitectureGetArchitectureForName: i386 != CPU_TYPE_I386");
 }
 
 - (void)testCSArchitectureGetCurrent
 {
-	STAssertEquals(CSArchitectureGetCurrent(), CPU_TYPE_X86_64, @"CSArchitectureGetCurrent != CPU_TYPE_X86_64");
+	XCTAssertEqual(CSArchitectureGetCurrent(), CPU_TYPE_X86_64, @"CSArchitectureGetCurrent != CPU_TYPE_X86_64");
 }
 
 - (void)testCSArchitectureGetFamily
 {
-	STAssertEquals(CSArchitectureGetFamily(CPU_TYPE_I386), CPU_TYPE_I386, @"CSArchitectureGetFamily: CPU_TYPE_I386 != CPU_TYPE_I386");
+	XCTAssertEqual(CSArchitectureGetFamily(CPU_TYPE_I386), CPU_TYPE_I386, @"CSArchitectureGetFamily: CPU_TYPE_I386 != CPU_TYPE_I386");
 }
 
 - (void)testCSArchitectureGetFamilyName
 {
-	STAssertTrue(strcmp(CSArchitectureGetFamilyName(CPU_TYPE_X86_64), "x86_64") == 0, @"CSArchitectureGetFamilyName: x86_64 != x86_64");
+	XCTAssertTrue(strcmp(CSArchitectureGetFamilyName(CPU_TYPE_X86_64), "x86_64") == 0, @"CSArchitectureGetFamilyName: x86_64 != x86_64");
 }
 
 - (void)testCSArchitectureIs
 {
-	STAssertTrue(CSArchitectureIs32Bit(CPU_TYPE_I386), @"CSArchitectureIs32Bit: CPU_TYPE_I386 != True");
-	STAssertFalse(CSArchitectureIs32Bit(CPU_TYPE_X86_64), @"CSArchitectureIs32Bit: CPU_TYPE_X86_64 != False");
+	XCTAssertTrue(CSArchitectureIs32Bit(CPU_TYPE_I386), @"CSArchitectureIs32Bit: CPU_TYPE_I386 != True");
+	XCTAssertFalse(CSArchitectureIs32Bit(CPU_TYPE_X86_64), @"CSArchitectureIs32Bit: CPU_TYPE_X86_64 != False");
 	
-	STAssertTrue(CSArchitectureIs64Bit(CPU_TYPE_X86_64), @"CSArchitectureIs64Bit: CPU_TYPE_X86_64 != True");
-	STAssertFalse(CSArchitectureIs64Bit(CPU_TYPE_I386), @"CSArchitectureIs64Bit: CPU_TYPE_I386 != False");
+	XCTAssertTrue(CSArchitectureIs64Bit(CPU_TYPE_X86_64), @"CSArchitectureIs64Bit: CPU_TYPE_X86_64 != True");
+	XCTAssertFalse(CSArchitectureIs64Bit(CPU_TYPE_I386), @"CSArchitectureIs64Bit: CPU_TYPE_I386 != False");
 	
-	STAssertTrue(CSArchitectureIsArm(CPU_TYPE_ARM), @"CSArchitectureIsArm: CPU_TYPE_ARM != True");
-	STAssertFalse(CSArchitectureIsArm(CPU_TYPE_I386), @"CSArchitectureIsArm: CPU_TYPE_I386 != False");
+	XCTAssertTrue(CSArchitectureIsArm(CPU_TYPE_ARM), @"CSArchitectureIsArm: CPU_TYPE_ARM != True");
+	XCTAssertFalse(CSArchitectureIsArm(CPU_TYPE_I386), @"CSArchitectureIsArm: CPU_TYPE_I386 != False");
 
-	STAssertTrue(CSArchitectureIsBigEndian(CPU_TYPE_POWERPC), @"CSArchitectureIsBigEndian: CPU_TYPE_POWERPC != True");
-	STAssertFalse(CSArchitectureIsBigEndian(CPU_TYPE_I386), @"CSArchitectureIsBigEndian: CPU_TYPE_I386 != False");
+	XCTAssertTrue(CSArchitectureIsBigEndian(CPU_TYPE_POWERPC), @"CSArchitectureIsBigEndian: CPU_TYPE_POWERPC != True");
+	XCTAssertFalse(CSArchitectureIsBigEndian(CPU_TYPE_I386), @"CSArchitectureIsBigEndian: CPU_TYPE_I386 != False");
 
-	STAssertTrue(CSArchitectureIsI386(CPU_TYPE_I386), @"CSArchitectureIsI386: CPU_TYPE_I386 != True");
-	STAssertFalse(CSArchitectureIsI386(CPU_TYPE_ARM), @"CSArchitectureIsI386: CPU_TYPE_ARM != False");
+	XCTAssertTrue(CSArchitectureIsI386(CPU_TYPE_I386), @"CSArchitectureIsI386: CPU_TYPE_I386 != True");
+	XCTAssertFalse(CSArchitectureIsI386(CPU_TYPE_ARM), @"CSArchitectureIsI386: CPU_TYPE_ARM != False");
 
-	STAssertTrue(CSArchitectureIsLittleEndian(CPU_TYPE_I386), @"CSArchitectureIsLittleEndian: CPU_TYPE_I386 != True");
-	STAssertFalse(CSArchitectureIsLittleEndian(CPU_TYPE_POWERPC), @"CSArchitectureIsLittleEndian: CPU_TYPE_POWERPC != False");
+	XCTAssertTrue(CSArchitectureIsLittleEndian(CPU_TYPE_I386), @"CSArchitectureIsLittleEndian: CPU_TYPE_I386 != True");
+	XCTAssertFalse(CSArchitectureIsLittleEndian(CPU_TYPE_POWERPC), @"CSArchitectureIsLittleEndian: CPU_TYPE_POWERPC != False");
 
-	STAssertTrue(CSArchitectureIsPPC(CPU_TYPE_POWERPC), @"CSArchitectureIsPPC: CPU_TYPE_POWERPC != True");
-	STAssertFalse(CSArchitectureIsPPC(CPU_TYPE_I386), @"CSArchitectureIsPPC: CPU_TYPE_I386 != False");
+//	XCTAssertTrue(CSArchitectureIsPPC(CPU_TYPE_POWERPC), @"CSArchitectureIsPPC: CPU_TYPE_POWERPC != True");
+//	XCTAssertFalse(CSArchitectureIsPPC(CPU_TYPE_I386), @"CSArchitectureIsPPC: CPU_TYPE_I386 != False");
 
-	STAssertTrue(CSArchitectureIsPPC64(CPU_TYPE_POWERPC64), @"CSArchitectureIsPPC64: CPU_TYPE_POWERPC64 != True");
-	STAssertFalse(CSArchitectureIsPPC64(CPU_TYPE_I386), @"CSArchitectureIsPPC64: CPU_TYPE_I386 != False");
+//	XCTAssertTrue(CSArchitectureIsPPC64(CPU_TYPE_POWERPC64), @"CSArchitectureIsPPC64: CPU_TYPE_POWERPC64 != True");
+//	XCTAssertFalse(CSArchitectureIsPPC64(CPU_TYPE_I386), @"CSArchitectureIsPPC64: CPU_TYPE_I386 != False");
 
-	STAssertTrue(CSArchitectureIsX86_64(CPU_TYPE_X86_64), @"CSArchitectureIsX86_64: CPU_TYPE_X86_64 != True");
-	STAssertFalse(CSArchitectureIsX86_64(CPU_TYPE_I386), @"CSArchitectureIsX86_64: CPU_TYPE_I386 != False");
+	XCTAssertTrue(CSArchitectureIsX86_64(CPU_TYPE_X86_64), @"CSArchitectureIsX86_64: CPU_TYPE_X86_64 != True");
+	XCTAssertFalse(CSArchitectureIsX86_64(CPU_TYPE_I386), @"CSArchitectureIsX86_64: CPU_TYPE_I386 != False");
 }
 
 - (void)testCSArchitectureMatchesArchitecture
 {
-	STAssertTrue(CSArchitectureMatchesArchitecture(CPU_TYPE_I386, CPU_TYPE_I386), @"CSArchitectureMatchesArchitecture: CPU_TYPE_I386 != CPU_TYPE_I386");
-	STAssertFalse(CSArchitectureMatchesArchitecture(CPU_TYPE_X86_64, CPU_TYPE_I386), @"CSArchitectureMatchesArchitecture: CPU_TYPE_X86_64 == CPU_TYPE_I386");
+	XCTAssertTrue(CSArchitectureMatchesArchitecture(CPU_TYPE_I386, CPU_TYPE_I386), @"CSArchitectureMatchesArchitecture: CPU_TYPE_I386 != CPU_TYPE_I386");
+	XCTAssertFalse(CSArchitectureMatchesArchitecture(CPU_TYPE_X86_64, CPU_TYPE_I386), @"CSArchitectureMatchesArchitecture: CPU_TYPE_X86_64 == CPU_TYPE_I386");
 }
 /*
 - (void)testCSCopyDescription
@@ -105,26 +105,26 @@
 - (void)testCSEqual
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertTrue(CSEqual(test, test), @"CSEqual True != True");
-	STAssertFalse(CSEqual(test, CSSymbolicatorCreateWithMachKernel()), @"CSEqual False != False");
+	XCTAssertTrue(CSEqual(test, test), @"CSEqual True != True");
+	XCTAssertFalse(CSEqual(test, CSSymbolicatorCreateWithMachKernel()), @"CSEqual False != False");
 	CSRelease(test);
 }
 
 - (void)testCSGetRetainCount
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertEquals(CSGetRetainCount(test), (CFIndex) 1, @"CSGetRetainCount != 1");
+	XCTAssertEqual(CSGetRetainCount(test), (CFIndex) 1, @"CSGetRetainCount != 1");
 	CSRetain(test);
-	STAssertEquals(CSGetRetainCount(test), (CFIndex) 2, @"CSGetRetainCount != 2");
+	XCTAssertEqual(CSGetRetainCount(test), (CFIndex) 2, @"CSGetRetainCount != 2");
 	CSRelease(test);
 }
 
 - (void)testCSIsNull
 {
 	CSSymbolicatorRef test = kCSNull;
-	STAssertTrue(CSIsNull(test), @"is not null");
+	XCTAssertTrue(CSIsNull(test), @"is not null");
 	test = CSSymbolicatorCreateWithMachKernel();
-	STAssertFalse(CSIsNull(test), @"is null");
+	XCTAssertFalse(CSIsNull(test), @"is null");
 	CSRelease(test);
 }
 /*
@@ -143,13 +143,13 @@
 	CSRange r3 = {80, 50};
 	CSRange r4 = {120, 50};
 	
-	STAssertTrue(CSRangeContainsRange(r1, r2), @"CSRangeContainsRange r1/r2 != True");
-	STAssertFalse(CSRangeContainsRange(r1, r3), @"CSRangeContainsRange r1/r3 != False");
-	STAssertFalse(CSRangeContainsRange(r1, r4), @"CSRangeContainsRange r1/r4 != False");
+	XCTAssertTrue(CSRangeContainsRange(r1, r2), @"CSRangeContainsRange r1/r2 != True");
+	XCTAssertFalse(CSRangeContainsRange(r1, r3), @"CSRangeContainsRange r1/r3 != False");
+	XCTAssertFalse(CSRangeContainsRange(r1, r4), @"CSRangeContainsRange r1/r4 != False");
 
-	STAssertTrue(CSRangeIntersectsRange(r1, r2), @"CSRangeIntersectsRange r1/r2 != True");
-	STAssertTrue(CSRangeIntersectsRange(r1, r3), @"CSRangeIntersectsRange r1/r3 != False");
-	STAssertFalse(CSRangeIntersectsRange(r1, r4), @"CSRangeIntersectsRange r1/r4 != False");
+	XCTAssertTrue(CSRangeIntersectsRange(r1, r2), @"CSRangeIntersectsRange r1/r2 != True");
+	XCTAssertTrue(CSRangeIntersectsRange(r1, r3), @"CSRangeIntersectsRange r1/r3 != False");
+	XCTAssertFalse(CSRangeIntersectsRange(r1, r4), @"CSRangeIntersectsRange r1/r4 != False");
 }
 
 
@@ -160,7 +160,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CFDataRef data = CSSymbolicatorCreateSignature(test);
-	STAssertTrue(data != NULL, @"CSSymbolicatorCreateSignature == NULL");
+	XCTAssertTrue(data != NULL, @"CSSymbolicatorCreateSignature == NULL");
 	CFRelease(data);
 	CSRelease(test);
 }
@@ -168,14 +168,14 @@
 - (void)testCSSymbolicatorCreateWithPathAndArchitecture
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPathAndArchitecture("/mach_kernel", CPU_TYPE_ANY);
-	STAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithPathAndArchitecture failed");
+	XCTAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithPathAndArchitecture failed");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorCreateWithPid
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithPid failed");
+	XCTAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithPid failed");
 	CSRelease(test);
 }
 
@@ -183,11 +183,11 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CFDataRef data = CSSymbolicatorCreateSignature(test);
-	STAssertTrue(data != NULL, @"CSSymbolicatorCreateSignature == NULL");
+	XCTAssertTrue(data != NULL, @"CSSymbolicatorCreateSignature == NULL");
 	CSRelease(test);
 	
 	CSSymbolicatorRef test1 = CSSymbolicatorCreateWithSignature(data);
-	STAssertFalse(CSIsNull(test1), @"CSSymbolicatorCreateWithSignature failed");
+	XCTAssertFalse(CSIsNull(test1), @"CSSymbolicatorCreateWithSignature failed");
 	CFRelease(data);
 	CSRelease(test1);
 }
@@ -195,7 +195,7 @@
 - (void)testCSSymbolicatorCreateWithTask
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithTask(mach_task_self());
-	STAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithTask failed");
+	XCTAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithTask failed");
 	CSRelease(test);
 }
 
@@ -204,7 +204,7 @@
 	const char* mk = "/mach_kernel";
 	CFURLRef url = CFURLCreateFromFileSystemRepresentation(kCFAllocatorDefault, (const UInt8*) mk, strlen(mk), NO);
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithURLAndArchitecture(url, CPU_TYPE_ANY);
-	STAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithTask failed");
+	XCTAssertFalse(CSIsNull(test), @"CSSymbolicatorCreateWithTask failed");
 	CSRelease(test);
 	CFRelease(url);
 }
@@ -212,7 +212,7 @@
 - (void)testCSSymbolicatorForceFullSymbolExtraction
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertEquals(CSSymbolicatorForceFullSymbolExtraction(test), (int) 1, @"CSSymbolicatorForceFullSymbolExtraction failed");
+	XCTAssertEqual(CSSymbolicatorForceFullSymbolExtraction(test), (int) 1, @"CSSymbolicatorForceFullSymbolExtraction failed");
 	CSRelease(test);
 }
 
@@ -224,7 +224,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachRegionAtTime, no regions found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachRegionAtTime, no regions found");
 	CSRelease(test);
 }
 
@@ -237,7 +237,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachRegionWithNameAtTime, no regions found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachRegionWithNameAtTime, no regions found");
 	CSRelease(test);
 }
 
@@ -272,7 +272,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachSourceInfoAtTime, no info's found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachSourceInfoAtTime, no info's found");
 	CSRelease(test);
 }
 
@@ -284,7 +284,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolAtTime, no symbols found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolAtTime, no symbols found");
 	CSRelease(test);
 }
 
@@ -296,7 +296,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolOwnerAtTime, no symbol owners found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolOwnerAtTime, no symbol owners found");
 	CSRelease(test);
 }
 
@@ -308,7 +308,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i == 1, @"CSSymbolicatorForeachSymbolOwnerWithNameAtTime, no symbol owners found");
+	XCTAssertTrue(i == 1, @"CSSymbolicatorForeachSymbolOwnerWithNameAtTime, no symbol owners found");
 	CSRelease(test);
 }
 
@@ -320,7 +320,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i == 1, @"CSSymbolicatorForeachSymbolOwnerWithPathAtTime, no symbol owners found");
+	XCTAssertTrue(i == 1, @"CSSymbolicatorForeachSymbolOwnerWithPathAtTime, no symbol owners found");
 	CSRelease(test);
 }
 
@@ -332,7 +332,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolWithMangledNameAtTime, no symbol found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolWithMangledNameAtTime, no symbol found");
 	CSRelease(test);
 }
 
@@ -344,42 +344,42 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolWithNameAtTime, no symbol found");
+	XCTAssertTrue(i > 0, @"CSSymbolicatorForeachSymbolWithNameAtTime, no symbol found");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorGetAOutSymbolOwner
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertTrue(CSIsNull(CSSymbolicatorGetAOutSymbolOwner(test)) == NO, @"CSSymbolicatorGetAOutSymbolOwner: no symbol owner found");
+	XCTAssertTrue(CSIsNull(CSSymbolicatorGetAOutSymbolOwner(test)) == NO, @"CSSymbolicatorGetAOutSymbolOwner: no symbol owner found");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorGetArchitecture
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertEquals(CSSymbolicatorGetArchitecture(test), CSArchitectureGetCurrent(), @"CSSymbolicatorGetArchitecture: incorrect result");
+	XCTAssertEqual(CSSymbolicatorGetArchitecture(test), CSArchitectureGetCurrent(), @"CSSymbolicatorGetArchitecture: incorrect result");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorGetDyldAllImageInfosAddress
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertTrue(CSSymbolicatorGetDyldAllImageInfosAddress(test), @"CSSymbolicatorGetDyldAllImageInfosAddress nil");
+	XCTAssertTrue(CSSymbolicatorGetDyldAllImageInfosAddress(test), @"CSSymbolicatorGetDyldAllImageInfosAddress nil");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorGetPid
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertEquals(CSSymbolicatorGetPid(test), getpid(), @"CSSymbolicatorGetPid didn't match");
+	XCTAssertEqual(CSSymbolicatorGetPid(test), getpid(), @"CSSymbolicatorGetPid didn't match");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorGetRegionCountAtTime
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertTrue(CSSymbolicatorGetRegionCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetRegionCountAtTime returned zero");
+	XCTAssertTrue(CSSymbolicatorGetRegionCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetRegionCountAtTime returned zero");
 	CSRelease(test);
 }
 
@@ -389,7 +389,7 @@
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "CSSymbolicatorGetSymbolWithNameAtTime", kCSNow);
 	vm_address_t addr = CSSymbolGetRange(sym).location;
 	CSRegionRef region = CSSymbolicatorGetRegionWithAddressAtTime(test, addr, kCSNow);
-	STAssertFalse(CSIsNull(region), @"CSSymbolicatorGetRegionWithAddressAtTime returned zero");
+	XCTAssertFalse(CSIsNull(region), @"CSSymbolicatorGetRegionWithAddressAtTime returned zero");
 	CSRelease(region);
 	CSRelease(sym);
 	CSRelease(test);
@@ -399,7 +399,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
 	CSRegionRef region = CSSymbolicatorGetRegionWithNameAtTime(test, "__DATA __bss", kCSNow);
-	STAssertFalse(CSIsNull(region), @"CSSymbolicatorGetRegionWithNameAtTime returned zero");
+	XCTAssertFalse(CSIsNull(region), @"CSSymbolicatorGetRegionWithNameAtTime returned zero");
 	CSRelease(region);
 	CSRelease(test);
 }
@@ -447,7 +447,7 @@
 - (void)testCSSymbolicatorGetSourceInfoCountAtTime
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertTrue(CSSymbolicatorGetSourceInfoCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSourceInfoCountAtTime returned zero");
+	XCTAssertTrue(CSSymbolicatorGetSourceInfoCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSourceInfoCountAtTime returned zero");
 	CSRelease(test);
 }
 
@@ -457,7 +457,7 @@
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
 	vm_address_t addr = CSSymbolGetRange(sym).location;
 	CSSourceInfoRef info = CSSymbolicatorGetSourceInfoWithAddressAtTime(test, addr, kCSNow);
-	STAssertFalse(CSIsNull(info), @"CSSymbolicatorGetSourceInfoWithAddressAtTime returned zero");
+	XCTAssertFalse(CSIsNull(info), @"CSSymbolicatorGetSourceInfoWithAddressAtTime returned zero");
 	CSRelease(info);
 	CSRelease(sym);
 	CSRelease(test);
@@ -466,7 +466,7 @@
 - (void)testCSSymbolicatorGetSymbolCountAtTime
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertTrue(CSSymbolicatorGetSymbolCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSymbolCountAtTime returned zero");
+	XCTAssertTrue(CSSymbolicatorGetSymbolCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSymbolCountAtTime returned zero");
 	CSRelease(test);
 }
 
@@ -474,7 +474,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolOwnerRef owner = CSSymbolicatorGetSymbolOwner(test);
-	STAssertFalse(CSIsNull(owner), @"CSSymbolicatorGetSymbolOwner returned zero");
+	XCTAssertFalse(CSIsNull(owner), @"CSSymbolicatorGetSymbolOwner returned zero");
 	CSRelease(owner);
 	CSRelease(test);
 }
@@ -482,7 +482,7 @@
 - (void)testCSSymbolicatorGetSymbolOwnerCountAtTime
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
-	STAssertTrue(CSSymbolicatorGetSymbolOwnerCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSymbolOwnerCountAtTime returned zero");
+	XCTAssertTrue(CSSymbolicatorGetSymbolOwnerCountAtTime(test, kCSNow) > 0, @"CSSymbolicatorGetSymbolOwnerCountAtTime returned zero");
 	CSRelease(test);
 }
 
@@ -491,7 +491,7 @@
 	__block CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolicatorForeachSymbolOwnerAtTime(test, kCSNow, ^(CSSymbolOwnerRef owner) {
 		CSSymbolOwnerRef o = CSSymbolicatorGetSymbolOwnerWithAddressAtTime(test, CSSymbolOwnerGetBaseAddress(owner), kCSNow);
-		STAssertFalse(CSIsNull(o), @"CSSymbolicatorGetSymbolOwnerWithAddressAtTime is null");
+		XCTAssertFalse(CSIsNull(o), @"CSSymbolicatorGetSymbolOwnerWithAddressAtTime is null");
 		return 1;
 	});
 	CSRelease(test);
@@ -501,7 +501,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolOwnerRef owner = CSSymbolicatorGetSymbolOwnerWithNameAtTime(test, kExtensionName, kCSNow);
-	STAssertFalse(CSIsNull(owner), @"CSSymbolicatorGetSymbolOwnerWithNameAtTime failed");
+	XCTAssertFalse(CSIsNull(owner), @"CSSymbolicatorGetSymbolOwnerWithNameAtTime failed");
 	CSRelease(owner);
 	CSRelease(test);
 }
@@ -512,7 +512,7 @@
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
 	CSRange range = CSSymbolGetRange(sym);
 	CSSymbolRef foundSymbol = CSSymbolicatorGetSymbolWithAddressAtTime(test, range.location, kCSNow);
-	STAssertFalse(CSIsNull(foundSymbol), @"CSSymbolicatorGetSymbolWithAddressAtTime failed");
+	XCTAssertFalse(CSIsNull(foundSymbol), @"CSSymbolicatorGetSymbolWithAddressAtTime failed");
 	CSRelease(sym);
 	CSRelease(foundSymbol);
 	CSRelease(test);
@@ -522,7 +522,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithMangledNameAtTime(test, "_bcopy", kCSNow);
-	STAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithMangledNameAtTime failed");
+	XCTAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithMangledNameAtTime failed");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -532,7 +532,7 @@
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolOwnerRef owner = CSSymbolicatorGetSymbolOwnerWithNameAtTime(test, kExtensionName, kCSNow);
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithMangledNameFromSymbolOwnerWithNameAtTime(test, owner, "_bcopy", kCSNow);
-	STAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithMangledNameFromSymbolOwnerWithNameAtTime failed");
+	XCTAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithMangledNameFromSymbolOwnerWithNameAtTime failed");
 	CSRelease(sym);
 	CSRelease(owner);
 	CSRelease(test);
@@ -542,7 +542,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
-	STAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithNameAtTime failed");
+	XCTAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithNameAtTime failed");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -552,7 +552,7 @@
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolOwnerRef owner = CSSymbolicatorGetSymbolOwnerWithNameAtTime(test, kExtensionName, kCSNow);
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameFromSymbolOwnerWithNameAtTime(test, owner, "bcopy", kCSNow);
-	STAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithNameFromSymbolOwnerWithNameAtTime failed");
+	XCTAssertFalse(CSIsNull(sym), @"CSSymbolicatorGetSymbolWithNameFromSymbolOwnerWithNameAtTime failed");
 	CSRelease(sym);
 	CSRelease(owner);
 	CSRelease(test);
@@ -562,32 +562,32 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
 	mach_port_t task = CSSymbolicatorGetTask(test);
-	STAssertTrue(task != MACH_PORT_NULL, @"CSSymbolicatorGetTask failed");
+	XCTAssertTrue(task != MACH_PORT_NULL, @"CSSymbolicatorGetTask failed");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorIsKernelSymbolicator
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertFalse(CSSymbolicatorIsKernelSymbolicator(test), @"CSSymbolicatorIsKernelSymbolicator wrong?");
+	XCTAssertFalse(CSSymbolicatorIsKernelSymbolicator(test), @"CSSymbolicatorIsKernelSymbolicator wrong?");
 	CSRelease(test);
 
 	CSSymbolicatorRef test1 = CSSymbolicatorCreateWithMachKernel();
-	STAssertTrue(CSSymbolicatorIsKernelSymbolicator(test1), @"CSSymbolicatorIsKernelSymbolicator wrong?");
+	XCTAssertTrue(CSSymbolicatorIsKernelSymbolicator(test1), @"CSSymbolicatorIsKernelSymbolicator wrong?");
 	CSRelease(test1);
 }
 
 - (void)testCSSymbolicatorIsTaskTranslated
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertFalse(CSSymbolicatorIsTaskTranslated(test), @"CSSymbolicatorIsTaskTranslated wrong");
+	XCTAssertFalse(CSSymbolicatorIsTaskTranslated(test), @"CSSymbolicatorIsTaskTranslated wrong");
 	CSRelease(test);
 }
 
 - (void)testCSSymbolicatorIsTaskValid
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithPid(getpid());
-	STAssertTrue(CSSymbolicatorIsTaskValid(test), @"CSSymbolicatorIsTaskValid wrong");
+	XCTAssertTrue(CSSymbolicatorIsTaskValid(test), @"CSSymbolicatorIsTaskValid wrong");
 	CSRelease(test);
 }
 
@@ -611,7 +611,7 @@
 		i++;
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSSymbolForeachSourceInfo returned zero");
+	XCTAssertTrue(i > 0, @"CSSymbolForeachSourceInfo returned zero");
 	
 	CSRelease(sym);
 	CSRelease(test);
@@ -631,7 +631,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
-	STAssertTrue(strcmp(CSSymbolGetMangledName(sym), "_bcopy") == 0, @"CSSymbolGetMangledName failed");
+	XCTAssertTrue(strcmp(CSSymbolGetMangledName(sym), "_bcopy") == 0, @"CSSymbolGetMangledName failed");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -640,7 +640,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
-	STAssertTrue(strcmp(CSSymbolGetName(sym), "bcopy") == 0, @"CSSymbolGetName failed");
+	XCTAssertTrue(strcmp(CSSymbolGetName(sym), "bcopy") == 0, @"CSSymbolGetName failed");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -649,7 +649,7 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
-	STAssertTrue(CSSymbolGetRange(sym).location != 0, @"CSSymbolGetRange failed");
+	XCTAssertTrue(CSSymbolGetRange(sym).location != 0, @"CSSymbolGetRange failed");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -659,7 +659,7 @@
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
 	CSRegionRef region = CSSymbolGetRegion(sym);
-	STAssertFalse(CSIsNull(region), @"CSSymbolGetRegion failed");
+	XCTAssertFalse(CSIsNull(region), @"CSSymbolGetRegion failed");
 	CSRelease(region);
 	CSRelease(sym);
 	CSRelease(test);
@@ -692,7 +692,7 @@
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
 	CSSymbolOwnerRef owner = CSSymbolGetSymbolOwner(sym);
-	STAssertFalse(CSIsNull(owner), @"CSSymbolGetSymbolOwner failed");
+	XCTAssertFalse(CSIsNull(owner), @"CSSymbolGetSymbolOwner failed");
 	CSRelease(owner);
 	CSRelease(sym);
 	CSRelease(test);
@@ -703,7 +703,7 @@
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
 	CSSymbolicatorRef test1 = CSSymbolGetSymbolicator(sym);
-	STAssertFalse(CSIsNull(test1), @"CSSymbolGetSymbolicator failed");
+	XCTAssertFalse(CSIsNull(test1), @"CSSymbolGetSymbolicator failed");
 	CSRelease(test1);
 	CSRelease(sym);
 	CSRelease(test);
@@ -713,27 +713,27 @@
 {
 	CSSymbolicatorRef test = CSSymbolicatorCreateWithMachKernel();
 	CSSymbolRef sym = CSSymbolicatorGetSymbolWithNameAtTime(test, "bcopy", kCSNow);
-	STAssertTrue(CSSymbolIsArm(sym), @"CSSymbolIsArm false");
-	STAssertFalse(CSSymbolIsDebugMap(sym), @"CSSymbolIsDebugMap false");
-	STAssertFalse(CSSymbolIsDwarf(sym), @"CSSymbolIsDwarf false");
-	STAssertFalse(CSSymbolIsDyldStub(sym), @"CSSymbolIsDyldStub false");
-	STAssertTrue(CSSymbolIsExternal(sym), @"CSSymbolIsExternal false");
-	STAssertFalse(CSSymbolIsFunction(sym), @"CSSymbolIsFunction false");
-	STAssertFalse(CSSymbolIsFunctionStarts(sym), @"CSSymbolIsFunctionStarts false");
-	STAssertFalse(CSSymbolIsKnownLength(sym), @"CSSymbolIsKnownLength false");
-	STAssertFalse(CSSymbolIsMangledNameSourceDwarf(sym), @"CSSymbolIsMangledNameSourceDwarf false");
-	STAssertFalse(CSSymbolIsMangledNameSourceDwarfMIPSLinkage(sym), @"CSSymbolIsMangledNameSourceDwarfMIPSLinkage false");
-	STAssertTrue(CSSymbolIsMangledNameSourceNList(sym), @"CSSymbolIsMangledNameSourceNList false");
-	STAssertFalse(CSSymbolIsMerged(sym), @"CSSymbolIsMerged false");
-	STAssertTrue(CSSymbolIsNList(sym), @"CSSymbolIsNList false");
-	STAssertFalse(CSSymbolIsNameSourceDwarf(sym), @"CSSymbolIsNameSourceDwarf false");
-	STAssertFalse(CSSymbolIsNameSourceDwarfMIPSLinkage(sym), @"CSSymbolIsNameSourceDwarfMIPSLinkage false");
-	STAssertTrue(CSSymbolIsNameSourceNList(sym), @"CSSymbolIsNameSourceNList false");
-	STAssertFalse(CSSymbolIsObjcMethod(sym), @"CSSymbolIsObjcMethod false");
-	STAssertFalse(CSSymbolIsOmitFramePointer(sym), @"CSSymbolIsOmitFramePointer false");
-	STAssertFalse(CSSymbolIsPrivateExternal(sym), @"CSSymbolIsPrivateExternal false");
-	STAssertFalse(CSSymbolIsThumb(sym), @"CSSymbolIsThumb false");
-	STAssertFalse(CSSymbolIsUnnamed(sym), @"CSSymbolIsUnnamed false");
+	XCTAssertTrue(CSSymbolIsArm(sym), @"CSSymbolIsArm false");
+	XCTAssertFalse(CSSymbolIsDebugMap(sym), @"CSSymbolIsDebugMap false");
+	XCTAssertFalse(CSSymbolIsDwarf(sym), @"CSSymbolIsDwarf false");
+	XCTAssertFalse(CSSymbolIsDyldStub(sym), @"CSSymbolIsDyldStub false");
+	XCTAssertTrue(CSSymbolIsExternal(sym), @"CSSymbolIsExternal false");
+	XCTAssertFalse(CSSymbolIsFunction(sym), @"CSSymbolIsFunction false");
+	XCTAssertFalse(CSSymbolIsFunctionStarts(sym), @"CSSymbolIsFunctionStarts false");
+	XCTAssertFalse(CSSymbolIsKnownLength(sym), @"CSSymbolIsKnownLength false");
+	XCTAssertFalse(CSSymbolIsMangledNameSourceDwarf(sym), @"CSSymbolIsMangledNameSourceDwarf false");
+	XCTAssertFalse(CSSymbolIsMangledNameSourceDwarfMIPSLinkage(sym), @"CSSymbolIsMangledNameSourceDwarfMIPSLinkage false");
+	XCTAssertTrue(CSSymbolIsMangledNameSourceNList(sym), @"CSSymbolIsMangledNameSourceNList false");
+	XCTAssertFalse(CSSymbolIsMerged(sym), @"CSSymbolIsMerged false");
+	XCTAssertTrue(CSSymbolIsNList(sym), @"CSSymbolIsNList false");
+	XCTAssertFalse(CSSymbolIsNameSourceDwarf(sym), @"CSSymbolIsNameSourceDwarf false");
+	XCTAssertFalse(CSSymbolIsNameSourceDwarfMIPSLinkage(sym), @"CSSymbolIsNameSourceDwarfMIPSLinkage false");
+	XCTAssertTrue(CSSymbolIsNameSourceNList(sym), @"CSSymbolIsNameSourceNList false");
+	XCTAssertFalse(CSSymbolIsObjcMethod(sym), @"CSSymbolIsObjcMethod false");
+	XCTAssertFalse(CSSymbolIsOmitFramePointer(sym), @"CSSymbolIsOmitFramePointer false");
+	XCTAssertFalse(CSSymbolIsPrivateExternal(sym), @"CSSymbolIsPrivateExternal false");
+	XCTAssertFalse(CSSymbolIsThumb(sym), @"CSSymbolIsThumb false");
+	XCTAssertFalse(CSSymbolIsUnnamed(sym), @"CSSymbolIsUnnamed false");
 	CSRelease(sym);
 	CSRelease(test);
 }
@@ -788,7 +788,7 @@
 		});
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSRegionForeachSourceInfo, no regions found");
+	XCTAssertTrue(i > 0, @"CSRegionForeachSourceInfo, no regions found");
 	CSRelease(test);
 }
 
@@ -803,7 +803,7 @@
 		});
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSRegionForeachSymbol, no regions found");
+	XCTAssertTrue(i > 0, @"CSRegionForeachSymbol, no regions found");
 	CSRelease(test);
 }
 
@@ -817,7 +817,7 @@
 		}
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSRegionGetName, no regions found");
+	XCTAssertTrue(i > 0, @"CSRegionGetName, no regions found");
 	CSRelease(test);
 }
 
@@ -831,7 +831,7 @@
 		}
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSRegionGetRange, no regions found");
+	XCTAssertTrue(i > 0, @"CSRegionGetRange, no regions found");
 	CSRelease(test);
 }
 /* XXX
@@ -858,7 +858,7 @@
 		}
 		return 0;
 	});
-	STAssertTrue(i > 0, @"CSRegionGetSymbolicator, no regions found");
+	XCTAssertTrue(i > 0, @"CSRegionGetSymbolicator, no regions found");
 	CSRelease(test);
 }
 
@@ -1083,42 +1083,42 @@
 		switch (notification_type) {
 			case kCSNotificationPing:
 				//printf("kCSNotificationPing, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 				
 			case kCSNotificationInitialized:
 				//printf("kCSNotificationInitialized, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 				
 			case kCSNotificationDyldLoad:
 				//printf("kCSNotificationDyldLoad, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 				
 			case kCSNotificationDyldUnload:
 				//printf("kCSNotificationDyldUnload, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 				
 			case kCSNotificationTimeout:
 				//printf("kCSNotificationTimeout, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 				
 			case kCSNotificationTaskExit:
 				//printf("kCSNotificationTaskExit, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 			
 			case kCSNotificationFini:
 				//printf("kCSNotificationFini, pid: %d\n", CSSymbolicatorGetPid(data.symbolicator));
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;				
 			
 			default:
 				//printf("default\n");
-				STAssertEquals(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
+				XCTAssertEqual(pid, CSSymbolicatorGetPid(data.symbolicator), @"pids dont match");
 				break;
 		}
 		return 0;

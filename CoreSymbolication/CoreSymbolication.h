@@ -100,13 +100,13 @@ typedef void* CSDictionaryValueCallBacks;
 typedef void* CSSetCallBacks;
 
 
-typedef int (^CSNotification)(uint32_t notification_type, CSNotificationData data);
+typedef void (^CSNotification)(uint32_t notification_type, CSNotificationData data);
 typedef int (^CSRegionIterator)(CSRegionRef region);
-typedef int (^CSSymbolOwnerIterator)(CSSymbolOwnerRef owner);
+typedef void (^CSSymbolOwnerIterator)(CSSymbolOwnerRef owner);
 typedef int (^CSSectionIterator)(CSSectionRef section);
 typedef int (^CSSourceInfoIterator)(CSSourceInfoRef sourceInfo);
-typedef int (^CSSymbolIterator)(CSSymbolRef symbol);
-typedef int (^CSSegmentIterator)(CSSegmentRef segment);
+typedef void (^CSSymbolIterator)(CSSymbolRef symbol);
+typedef void (^CSSegmentIterator)(CSSegmentRef segment);
 
 
 /*
@@ -128,6 +128,9 @@ typedef int (^CSSegmentIterator)(CSSegmentRef segment);
 #define kCSNotificationTaskExit				0x1000
 #define kCSNotificationFini					0x80000000
 
+#define kCSSymbolicatorDefaultCreateFlags 0
+#define kCSSymbolicatorUseSlidKernelAddresses 0x80000000
+#define kCSSymbolOwnerDataEmpty 0x80
 
 /*
  * External symbols
@@ -224,7 +227,7 @@ CSSymbolicatorRef CSRegionGetSymbolicator(CSRegionRef region);
 CSSectionGetSegment
 CSSegmentForeachSection
 */
-
+void CSSegmentForeachSection(CSSegmentRef segment, CSTypeRef typeRef);
 
 /*
  * XXX: Signature functions
@@ -379,6 +382,10 @@ CSSymbolOwnerSetTransientUserData
 CSSymbolOwnerSetUnloadTimestamp
 */
 
+void CSSymbolOwnerForeachSymbolWithName(CSSymbolOwnerRef owner, const char *sname, CSSymbolIterator it);
+void CSSymbolOwnerForeachSymbolWithMangledName(CSSymbolOwnerRef owner, const char *sname, CSSymbolIterator it);
+uintptr_t CSSymbolOwnerGetTransientUserData(CSSymbolOwnerRef owner);
+void CSSymbolOwnerSetTransientUserData(CSSymbolOwnerRef owner, uint32_t current_symbol_owner_generation);
 
 /*
  * XXX: Symbolicator functions
